@@ -95,7 +95,7 @@ namespace MyShop.WebUI.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpPost]
         [ActionName("Delete")]
         public ActionResult ConfirmDelete(string Id)
         {
