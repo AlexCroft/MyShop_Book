@@ -24,7 +24,7 @@ namespace MyShop.WebUI.Controllers
 
         public ActionResult Create() {
             Product product = new Product();
-            return View();
+            return View(product);
         }
 
         [HttpPost]
