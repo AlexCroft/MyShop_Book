@@ -34,10 +34,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.VATCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TaxCode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.VATCode, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.VATCode, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.TaxCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TaxCode, "", new { @class = "text-danger" })
             </div>
         </div>
 
