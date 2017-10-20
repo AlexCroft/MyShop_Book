@@ -12,7 +12,7 @@ namespace MyShop.Core.Models
         [DisplayName("Product Name")]
         public string Name { get; set; }
         public string Description { get; set; }
-        public int VATCode { get; set; }
+        public int TaxCode { get; set; }
         [Range(0, 1000)]
         public decimal NetPrice { get; set; }
         public string Category { get; set; }
