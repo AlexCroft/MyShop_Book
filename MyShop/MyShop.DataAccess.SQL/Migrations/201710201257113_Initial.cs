@@ -24,7 +24,7 @@ namespace MyShop.DataAccess.SQL.Migrations
                         Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(maxLength: 20),
                         Description = c.String(),
-                        VATCode = c.Int(nullable: false),
+                        TaxCode = c.Int(nullable: false),
                         NetPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Category = c.String(),
                         Image = c.String(),
