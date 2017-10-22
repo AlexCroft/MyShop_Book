@@ -7,6 +7,7 @@ using MyShop.Core.Models;
 using MyShop.DataAccess.InMemory;
 using MyShop.Core.ViewModels;
 using MyShop.Core.Contracts;
+using System.IO;
 
 namespace MyShop.WebUI.Controllers
 {
@@ -35,13 +36,21 @@ namespace MyShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(Product product, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
                 return View(product);
             }
-            else {
+            else
+            {
+                //save the image
+                if (file != null)
+                {
+                    product.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//productImages//") + product.Image);
+                }
+
                 context.Insert(product);
                 context.Commit();
 
@@ -68,7 +77,7 @@ namespace MyShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Product product, string Id)
+        public ActionResult Edit(Product product, string Id, HttpPostedFileBase file)
         {
             Product productToEdit = context.Find(Id);
 
@@ -81,13 +90,19 @@ namespace MyShop.WebUI.Controllers
                 if (!ModelState.IsValid) {
                     return View(product);
                 }
+
+                //save the image
+                if (file != null)
+                {
+                    product.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//productImages//") + product.Image);
+                }
+
                 productToEdit.Category = product.Category;
                 productToEdit.Description = product.Description;
-                productToEdit.Image = product.Image;
                 productToEdit.Name = product.Name;
-                productToEdit.NetPrice = product.NetPrice;
-                productToEdit.TaxCode = product.TaxCode;
-
+                productToEdit.Price = product.Price;
+                
                 context.Commit();
             }
 
