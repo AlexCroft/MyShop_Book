@@ -85,8 +85,7 @@ namespace MyShop.WebUI.Controllers
                 productToEdit.Description = product.Description;
                 productToEdit.Image = product.Image;
                 productToEdit.Name = product.Name;
-                productToEdit.NetPrice = product.NetPrice;
-                productToEdit.TaxCode = product.TaxCode;
+                productToEdit.Price = product.Price;
 
                 context.Commit();
             }
