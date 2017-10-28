@@ -1,9 +1,4 @@
 ﻿using MyShop.Core.Contracts;
-using MyShop.Core.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MyShop.WebUI.Controllers
@@ -18,14 +13,14 @@ namespace MyShop.WebUI.Controllers
         // GET: Basket
         public ActionResult Index()
         {
-            var model = basketService.GetBasket(this.HttpContext, true);
+            var model = basketService.GetBasketItems(this.HttpContext);
 
-            return View(model.BasketItems);
+            return View(model);
         }
 
         public ActionResult AddToBasket(string id)
         {
-            basketService.AddToBasket(this.HttpContext, id, 1);//always add one to the basket
+            basketService.AddToBasket(this.HttpContext, id);//always add one to the basket
 
             return RedirectToAction("Index");
         }
@@ -38,7 +33,7 @@ namespace MyShop.WebUI.Controllers
         }
 
         public PartialViewResult BasketSummary() {
-            var basketSummary = basketService.BasketSummary(this.HttpContext);
+            var basketSummary = basketService.GetBasketSummary(this.HttpContext);
             return PartialView("BasketSummary", basketSummary);
         }
     }

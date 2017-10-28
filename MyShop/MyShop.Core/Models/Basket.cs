@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MyShop.Core.Models
 {
@@ -13,22 +9,6 @@ namespace MyShop.Core.Models
         public Basket()
         {
             this.BasketItems = new List<BasketItem>();
-        }
-
-        public decimal BasketTotal()
-        {
-            decimal? total = (from item in BasketItems
-                              select (int?)item.Quantity * item.Price).Sum();
-
-            return total ?? decimal.Zero;
-        }
-
-        public int BasketItemCount()
-        {
-            int? total = (from item in BasketItems
-                                  select item.Quantity).Sum();
-
-            return total ?? 0;
         }
     }
 }

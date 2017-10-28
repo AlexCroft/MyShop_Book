@@ -1,13 +1,12 @@
-﻿@model IEnumerable<MyShop.Core.Models.BasketItem>
+﻿@model IEnumerable<MyShop.Core.ViewModels.BasketItemViewModel>
 @{
-    decimal basketTotal = 0;
     ViewBag.Title = "Index";
 }
 
 <h2>Basket</h2>
 <table class="table">
     <tr>
-        
+        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
@@ -22,10 +21,10 @@
     </tr>
 
 @foreach (var item in Model) {
-    basketTotal += item.Price * item.Quantity;
-
     <tr>
-        
+        <td>
+            <img class="img" style="height:50px" src="~/Content/productImages/@item.Image" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
@@ -44,17 +43,13 @@
     </tr>
 }
     <tr>
-
-        <td>
-        </td>
-        <td>
-        </td>
-        <td style="text-align:right">
+        <td colspan="4" style="text-align:right">
             <strong>Basket Total</strong>
         </td>
         <td>
-            @String.Format("{0:c}", basketTotal)
+            @String.Format("{0:c}", (from p in Model select p.Quantity * p.Price).Sum())
         </td>
+        <td></td>
     </tr>
 
 </table>
