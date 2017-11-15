@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Web.Mvc;
 
-using Unity.Mvc;
+using Unity.AspNet.Mvc;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MyShop.WebUI.UnityMvcActivator), nameof(MyShop.WebUI.UnityMvcActivator.Start))]
 [assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(MyShop.WebUI.UnityMvcActivator), nameof(MyShop.WebUI.UnityMvcActivator.Shutdown))]
