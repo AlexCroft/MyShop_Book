@@ -20,16 +20,9 @@ namespace MyShop.WebUI.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private IRepository<Customer> customers;
- 
-        public AccountController(IRepository<Customer> Customers)
-        {
-            this.customers = Customers;
-        }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
+        public AccountController(IRepository<Customer> customers) {
+            this.customers = customers;
         }
 
         public ApplicationSignInManager SignInManager
