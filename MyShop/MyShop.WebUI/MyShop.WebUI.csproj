@@ -311,10 +311,13 @@
     <Content Include="Views\Basket\BasketSummary.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Views\Basket\Checkout.cshtml" />
+    <Content Include="Views\Basket\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\productImages\" />
+    <Folder Include="Views\OrderManager\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
