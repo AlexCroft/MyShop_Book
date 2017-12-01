@@ -63,8 +63,14 @@ namespace MyShop.WebUI.Controllers
         [Authorize]
         public ActionResult Checkout(Order order) {
             var basketItems = basketService.GetBasketItems(this.HttpContext);
+            order.OrderStatus = "Order Created";
             order.Email = User.Identity.Name;
 
+            //process payment - this could either be a redirect to another view, or a two way process
+            //using something like paypal.
+            //for simplicity, and because payment processing itself can vary wildy depedant on what payment mechanism you
+            //us we'll pretend payment was successful.
+            order.OrderStatus = "Payment Processed";
             orderService.CreateOrder(order, basketItems);
             basketService.ClearBasket(this.HttpContext);
 
