@@ -17,6 +17,11 @@ namespace MyShop.WebUI.Controllers
             this.context = productContext;
             this.productCategories = productCategoryContext;
         }
+
+        public ActionResult Admin() {
+            return View();
+        }
+
         // GET: ProductManager
         public ActionResult Index(string Category=null)
         {
