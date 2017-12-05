@@ -317,6 +317,7 @@
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\OrderManager\Index.cshtml" />
     <Content Include="Views\OrderManager\UpdateOrder.cshtml" />
+    <Content Include="Views\OrderManager\OrderItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
